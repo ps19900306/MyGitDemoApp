@@ -38,7 +38,6 @@ class SimpleVideoActivity : AppCompatActivity() {
         override fun onCompletion(mp: MediaPlayer?) {
 
         }
-
     }
 
 }

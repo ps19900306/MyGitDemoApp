@@ -1,2 +1,4 @@
+include ':Toollibrary'
+include ':okhttpdemo'
 rootProject.name='MyGitDemoApp'
 include ':app'
