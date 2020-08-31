@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ningwenqiang.glory.mygitdemoapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -13,15 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui_function.animation.AnimationActivity"></activity>
         <activity android:name=".equipment_function.video_playback.SimpleVideoActivity">
+
+        </activity>
+        <activity android:name=".ui_function.anylayer.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui_function.anylayer.DragActivity">
+
         </activity>
+        <activity android:name=".ui_function.anylayer.FullScreenActivity">
+
+        </activity>
+        <activity android:name=".ui_function.anylayer.NormalActivity">
+
+        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
