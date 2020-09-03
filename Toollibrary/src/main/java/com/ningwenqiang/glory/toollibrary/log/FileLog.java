@@ -84,6 +84,7 @@ public class FileLog {
         File logdir = new File(LOG_PATH_SDCARD_DIR);// 如果没有log文件夹则新建该文件夹
         if (!logdir.exists()) {
             logdir.mkdirs();
+            delFile();
         }
         File file = new File(LOG_PATH_SDCARD_DIR, needWriteFiel + LOGFILENAME);
         try {
