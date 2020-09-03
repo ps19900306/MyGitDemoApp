@@ -11,6 +11,5 @@ class AnimationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
         val dd = ValueAnimator()
-
     }
 }

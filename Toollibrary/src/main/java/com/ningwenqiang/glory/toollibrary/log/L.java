@@ -17,7 +17,7 @@ public class L {
     public  static final  int ViewType = 4;
 
     public static final String LogName="nwq";
-    public static final Date LogDate= new Date("2020/9/30");//("2020/8/30");
+    public static final Date LogDate= new Date("2020/8/30");
 
     //用来控制日志输出类型
     public static int Type =ConsoleType;

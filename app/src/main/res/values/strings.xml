@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyGitDemoApp</string>
     <string name="dialog_msg">Android稳定高效的浮层创建管理框架</string>
+    <string name="pet_hello">你好啊！\n 又看到你啦~</string>
 </resources>
