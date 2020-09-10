@@ -1,3 +1,4 @@
+include ':kotlintestapplication'
 include ':anylayer'
 include ':Toollibrary'
 include ':okhttpdemo'
