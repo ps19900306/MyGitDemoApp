@@ -108,6 +108,7 @@ public class FullScreenActivity extends AppCompatActivity implements View.OnClic
                 showMulti();
                 break;
             case R.id.tv_show_edit:
+
                 AnyLayer.dialog(FullScreenActivity.this)
                         .contentView(R.layout.dialog_edit)
                         .backgroundDimDefault()

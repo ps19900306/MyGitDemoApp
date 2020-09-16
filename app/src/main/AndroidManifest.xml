@@ -14,17 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".data_processing.gson.GsonTestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui_function.animation.ObjectAnimationActivity">
         </activity>
         <activity android:name=".ui_function.animation.AnimationActivity" />
         <activity android:name=".equipment_function.video_playback.SimpleVideoActivity" />
-        <activity android:name=".ui_function.anylayer.MainActivity"></activity>
+        <activity android:name=".ui_function.anylayer.MainActivity">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity android:name=".ui_function.anylayer.DragActivity" />
         <activity android:name=".ui_function.anylayer.FullScreenActivity" />
         <activity android:name=".ui_function.anylayer.NormalActivity" />

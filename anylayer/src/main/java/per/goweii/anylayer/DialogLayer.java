@@ -54,7 +54,7 @@ public class DialogLayer extends DecorLayer {
 
     public DialogLayer(@NonNull Activity activity) {
         super(activity);
-        getViewHolder().setActivityContent(getViewHolder().getDecor().findViewById(android.R.id.content));
+        getViewHolder().setActivityContent(getViewHolder().getDecor().findViewById(android.R.id.content));//注意android.R.id.content 这个是根节点
     }
 
     @IntRange(from = 0)

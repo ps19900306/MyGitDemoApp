@@ -151,14 +151,14 @@ public class NormalActivity extends AppCompatActivity implements View.OnClickLis
                         .show();
                 break;
             case R.id.tv_show_notification:
-                AnyLayer.dialog(NormalActivity.this)
+               DialogLayer dialogLayer=  AnyLayer.dialog(NormalActivity.this)
                         .avoidStatusBar(true)
                         .contentView(R.layout.dialog_notificationl)
                         .gravity(Gravity.TOP)
                         .outsideInterceptTouchEvent(false)
                         .swipeDismiss(SwipeLayout.Direction.TOP | SwipeLayout.Direction.LEFT | SwipeLayout.Direction.RIGHT)
-                        .animStyle(DialogLayer.AnimStyle.TOP)
-                        .show();
+                        .animStyle(DialogLayer.AnimStyle.TOP);
+                dialogLayer.show();
                 break;
             case R.id.tv_show_edit:
                 AnyLayer.dialog(NormalActivity.this)
