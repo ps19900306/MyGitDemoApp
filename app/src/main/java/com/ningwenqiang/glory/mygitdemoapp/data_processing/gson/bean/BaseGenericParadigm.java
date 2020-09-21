@@ -1,5 +1,10 @@
 package com.ningwenqiang.glory.mygitdemoapp.data_processing.gson.bean;
 
+import android.util.SparseArray;
+import android.view.View;
+
+import androidx.annotation.Nullable;
+
 /**
  * create by: 86136
  * create time: 2020/9/8 10:33
@@ -36,4 +41,6 @@ public class  BaseGenericParadigm<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+
 }

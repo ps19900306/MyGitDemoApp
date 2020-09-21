@@ -6,6 +6,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ningwenqiang.glory.mygitdemoapp.R
 import com.ningwenqiang.glory.mygitdemoapp.data_processing.gson.bean.BaseGenericParadigm
+import com.ningwenqiang.glory.mygitdemoapp.data_processing.gson.bean.BaseGenericParadigm1
+import com.ningwenqiang.glory.mygitdemoapp.data_processing.gson.bean.GenData3
 import com.ningwenqiang.glory.mygitdemoapp.data_processing.gson.bean.GenericParadigmData1
 import java.lang.reflect.Type
 
@@ -38,9 +40,30 @@ class GsonTestActivity : AppCompatActivity() {
         bas.data=genericParadigmData1
 
         val json= gson.toJson(bas)
-
+        System.out.println(json)
         val objectType: Type? = object : TypeToken<BaseGenericParadigm<GenericParadigmData1?>?>() {}.type
-        val bas2:BaseGenericParadigm<GenericParadigmData1> =  gson.fromJson(json, objectType)
+       //    val bas2:BaseGenericParadigm<GenericParadigmData1> =  gson.fromJson(json, objectType)
+        val data : BaseGenericParadigm1<GenData3> = json.toJsonObject()
+        System.out.println(" ::;   "+data.data.value2)
+
+
+        val list = listOf("123","456")
+        list.forEach {
+            println(it)
+        }
+
+        list.forEachIndexed{
+            i,v ->
+        }
+
+
+     }
+
+
+    inline fun <reified T > String.toJsonObject(): T{
+        val token = object: TypeToken<T>(){}.type
+       // val objectType: Type? = object : TypeToken<T::class.java>() {}.type
+        return Gson().fromJson<T>(this,token)
     }
 
 }

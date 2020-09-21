@@ -8,6 +8,7 @@ import android.util.Log;
 public class ConsoleLog {
 
     /**
+     *
      * error的日志
      * @param tag 源头
      * @param text 内容

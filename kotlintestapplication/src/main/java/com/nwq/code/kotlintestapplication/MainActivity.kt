@@ -5,11 +5,12 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
-    suspend inline fun awaitBoolean(): Boolean?=null
+    suspend inline fun awaitBoolean(): Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val idiomaticUsage = IdiomaticUsage()
+        idiomaticUsage.foo(b = "dd")
     }
 }

@@ -36,4 +36,6 @@ public class GenericParadigmData1 {
     public void setValue3(long value3) {
         this.value3 = value3;
     }
+
+
 }
