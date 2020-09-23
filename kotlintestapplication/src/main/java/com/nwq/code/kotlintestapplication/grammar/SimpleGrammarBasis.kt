@@ -1,6 +1,5 @@
-package com.nwq.code.kotlintestapplication
+package com.nwq.code.kotlintestapplication.grammar
 
-import androidx.constraintlayout.solver.widgets.Rectangle
 import java.lang.Integer.parseInt
 
 /**
