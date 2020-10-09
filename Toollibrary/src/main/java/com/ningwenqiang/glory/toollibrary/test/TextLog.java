@@ -6,9 +6,6 @@ import com.ningwenqiang.glory.toollibrary.log.L;
 public class TextLog {
 
     public void sst(){
-
         L.i("", "TextLog", "sst", "nwq", "2020/8/30");
-
-
     }
 }

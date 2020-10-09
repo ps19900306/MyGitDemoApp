@@ -26,7 +26,6 @@ class ExampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_example)
-
         handler = CoroutineExceptionHandler { _, exception ->
             run {
                 L.e(
@@ -57,6 +56,18 @@ class ExampleActivity : AppCompatActivity() {
 
     }
 
+    var  x=1
+    fun test2() {
+        ::x.name
+        ::x.get()
+
+        val numberRegex = "\\d+".toRegex()
+        println(numberRegex.matches("29"))
+
+        val isNumber = numberRegex::matches
+        println(isNumber("29"))
+
+    }
     val client = OkHttpClient()
     val JSON: MediaType = "application/json".toMediaType()
 

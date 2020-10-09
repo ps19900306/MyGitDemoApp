@@ -1,11 +1,14 @@
 package com.nwq.code.kotlintestapplication.ctrip
 
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+
+import com.ningwenqiang.glory.toollibrary.activity.BasicActivity
 import com.ningwenqiang.glory.toollibrary.log.L
 import com.nwq.code.kotlintestapplication.R
+import com.nwq.code.kotlintestapplication.coroutines.CoroutinesBasic
 import com.nwq.code.kotlintestapplication.grammar.ControlFlow
 import kotlinx.coroutines.*
 
@@ -13,13 +16,10 @@ class CtripActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ctrip)
-        L.d("主线程id：${mainLooper.thread.id}", "onCreate", "CtripActivity", "nwq", "2020/9/21");
-        val controlFlow= ControlFlow();
-        controlFlow.test5()
-        controlFlow.test6()
-        controlFlow.test7()
-        L.d("协程执行结束", "onCreate", "CtripActivity", "nwq", "2020/9/21");
-    }
+        val cc=CoroutinesBasic();
+        cc.test14()
+
+      }
 
     private fun test() = runBlocking {//启动的协程任务会阻断当前线程，直到该协程执行结束。当协程执行结束之后，页面才会被显示出来。
 

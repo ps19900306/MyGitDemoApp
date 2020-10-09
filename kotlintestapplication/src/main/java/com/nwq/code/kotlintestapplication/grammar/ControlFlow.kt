@@ -1,5 +1,9 @@
 package com.nwq.code.kotlintestapplication.grammar
 
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
+import kotlin.reflect.KProperty
+
 /**
 create by: 86136
 create time: 2020/9/22 10:54
@@ -52,6 +56,7 @@ class ControlFlow {
     }
 
 
+
     fun test5() {
         listOf(1, 2, 3, 4, 5).forEach {
             if (it == 3) return // 非局部直接返回到 test5() 的调用者
@@ -78,11 +83,13 @@ class ControlFlow {
 
 
     open class Rectangle {
-        open fun draw() { /* …… */ }
+        open fun draw() { /* …… */
+        }
     }
 
     interface Polygon {
-        fun draw() { /* …… */ } // 接口成员默认就是“open”的
+        fun draw() { /* …… */
+        } // 接口成员默认就是“open”的
     }
 
     class Square() : Rectangle(), Polygon {
@@ -95,12 +102,12 @@ class ControlFlow {
 
     /**
      *
-     一般地，属性声明为非空类型必须在构造函数中初始化。
-     然而，这经常不方便。例如：属性可以通过依赖注入来初始化， 或者在单元测试的 setup 方法中初始化。
-      这种情况下，你不能在构造函数内提供一个非空初始器。 但你仍然想在类体中引用该属性时避免空检测。
+    一般地，属性声明为非空类型必须在构造函数中初始化。
+    然而，这经常不方便。例如：属性可以通过依赖注入来初始化， 或者在单元测试的 setup 方法中初始化。
+    这种情况下，你不能在构造函数内提供一个非空初始器。 但你仍然想在类体中引用该属性时避免空检测。
     为处理这种情况，你可以用 lateinit 修饰符标记该属性：
      */
-    lateinit var subject:IdiomaticUsage
+    lateinit var subject: IdiomaticUsage
 //    @SetUp fun setup() {
 //        subject = IdiomaticUsage()
 //    }
@@ -113,4 +120,61 @@ class ControlFlow {
 //    if (foo::bar.isInitialized) {
 //        println(foo.bar)
 //    }
+
+    private var _table: Map<String, Int>? = null
+
+    public val table: Map<String, Int>
+        get() {
+            if (_table == null) {
+                _table = HashMap() // 类型参数已推断出
+            }
+            return _table ?: throw AssertionError("Set to null by another thread")
+        }
+
+    class Resource
+
+
+    class Owner {
+        var varResource: Resource by ResourceDelegate()
+    }
+
+    class ResourceDelegate(private var resource: Resource = Resource()) {
+        operator fun getValue(thisRef: Owner, property: KProperty<*>): Resource {
+            return resource
+        }
+
+        operator fun setValue(thisRef: Owner, property: KProperty<*>, value: Any?) {
+            if (value is Resource) {
+                resource = value
+            }
+        }
+    }
+
+    fun test11() {
+        val lock = ReentrantLock();
+        lock(lock) { test12() }
+    }
+
+    fun test12() {
+        println("执行方法1");
+    }
+
+    inline fun <T> lock(lock: Lock, body: (inx: Int) -> T): T {
+
+        return body(1)
+
+    }
+
+    val sum: Int.(Int) -> Int = { other ->
+        plus(other)
+    }
+
+    fun test13() {
+        foo(inlined = { test12() });
+    }
+
+    inline fun foo(inlined: () -> Unit) {
+        inlined.invoke()
+        // notInlined.invoke()
+    }
 }
