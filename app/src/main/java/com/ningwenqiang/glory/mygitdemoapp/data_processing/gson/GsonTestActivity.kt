@@ -62,7 +62,6 @@ class GsonTestActivity : AppCompatActivity() {
 
     inline fun <reified T > String.toJsonObject(): T{
         val token = object: TypeToken<T>(){}.type
-       // val objectType: Type? = object : TypeToken<T::class.java>() {}.type
         return Gson().fromJson<T>(this,token)
     }
 

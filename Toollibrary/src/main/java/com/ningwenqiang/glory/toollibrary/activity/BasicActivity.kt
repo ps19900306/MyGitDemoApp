@@ -65,7 +65,7 @@ abstract class BasicActivity : AppCompatActivity(), ActivityStackManager,
                     }
                 }
             }
-            onCheckPermissionResult(hasAllPermission);
+            onCheckPermissionResult(hasAllPermission)
         }
     }
 
@@ -79,6 +79,9 @@ abstract class BasicActivity : AppCompatActivity(), ActivityStackManager,
         super<ActivityStackManager>.onStateChanged(source, event)
         super<TripartiteAssemblyManager>.onStateChanged(source, event)
     }
+
+
+
 
 
 }

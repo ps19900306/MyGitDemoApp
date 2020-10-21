@@ -10,6 +10,7 @@ Function description:
  */
 class BasicApp : Application() {
 
+
     companion object {
         var context: Context? = null
         val mHandler by lazy {
