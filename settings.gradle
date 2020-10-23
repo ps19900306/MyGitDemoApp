@@ -1,3 +1,7 @@
+include ':sqlit3Library'
+include ':rxhttp'
+include ':rxhttp-annotation'
+include ':rxhttp-compiler'
 include ':kotlintestapplication'
 include ':anylayer'
 include ':Toollibrary'

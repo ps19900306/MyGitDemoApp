@@ -15,6 +15,10 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/kotlintestapplication" />
             <option value="$PROJECT_DIR$/okhttpdemo" />
+            <option value="$PROJECT_DIR$/rxhttp" />
+            <option value="$PROJECT_DIR$/rxhttp-annotation" />
+            <option value="$PROJECT_DIR$/rxhttp-compiler" />
+            <option value="$PROJECT_DIR$/sqlit3Library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

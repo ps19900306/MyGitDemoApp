@@ -15,36 +15,36 @@ class PermissionUtils {
 
     companion object {
 
-        fun addDataObserver(
+        fun checkPermission(
             permissions: Array<String>,
             observer: (result: Boolean) -> Unit
         ) {
-            addDataObserver(permissions, ObserverNwqImpl(observer))
+            checkPermission(permissions, ObserverNwqImpl(observer))
         }
 
-        fun addDataObserver(
+        fun checkPermission(
             permissions: Array<String>,
             observer: ObserverNwq<Boolean>
         ) {
             val activity = ActivityStackManager.getTopActivity()
             if (activity != null) {
-                addDataObserver(activity, permissions, observer)
+                checkPermission(activity, permissions, observer)
             } else {
                 observer.observation(false)
             }
         }
 
 
-        fun addDataObserver(
+        fun checkPermission(
             context: Context,
             permissions: Array<String>,
             observer: (result: Boolean) -> Unit
         ) {
-            addDataObserver(context, permissions, ObserverNwqImpl(observer))
+            checkPermission(context, permissions, ObserverNwqImpl(observer))
         }
 
 
-        fun addDataObserver(
+        fun checkPermission(
             context: Context,
             permissions: Array<String>, observer: ObserverNwq<Boolean>
         ) {

@@ -16,6 +16,52 @@ Function description:
 class NwqHandler : Handler() {
 
     private val weakReferenceHashMap = HashMap<Int, WeakReference<out ObserverNwq<Message>>>()
+    //用于做延迟控制的
+    private val lastTimeMaps = HashMap<Int, Long>()
+
+    //这里需要统一存放Key已防止用冲突
+    companion object {
+        private const val INTERVAL_TIME = 3000L
+        private const val INIT_TIME = 0L
+        const val  CLEAN_DELAY = 500
+        const val TRTC_CALL = 1021
+    }
+
+
+    fun hasInterval(Key: Int): Boolean {
+        return hasInterval(Key, true)
+    }
+
+
+    fun hasInterval(Key: Int, saveTime: Boolean): Boolean {
+        val time = lastTimeMaps[Key] ?: INIT_TIME
+        if (System.currentTimeMillis() > time + INTERVAL_TIME) {
+            if (saveTime) lastTimeMaps[Key] = System.currentTimeMillis()
+            return true
+        }
+        return false
+    }
+
+    fun clean(Key: Int, delay: Long) {
+        postDelayed({
+            lastTimeMaps[Key] = INIT_TIME
+        }, delay)
+    }
+
+
+    fun clean(Key: Int): Boolean {
+        lastTimeMaps[Key].let {
+            return if (it == null) {
+                false
+            } else {
+                lastTimeMaps[Key] = INIT_TIME
+                true
+            }
+        }
+    }
+
+
+
 
     override fun handleMessage(msg: Message) {
         super.handleMessage(msg)
@@ -46,9 +92,6 @@ class NwqHandler : Handler() {
         weakReferenceHashMap.remove(Key)
     }
 
-    //这里需要统一存放Key已防止用冲突
-    companion object {
 
-    }
 
 }
