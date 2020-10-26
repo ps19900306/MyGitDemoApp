@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Notification;
 import android.content.Context;
 
 import android.util.AttributeSet;
@@ -53,9 +54,6 @@ public class PetFrameLayout extends FrameLayout implements View.OnClickListener 
     private AnimatorSet animatorSet4;
     private AnimatorSet animatorSet5;
     private Animator.AnimatorListener animatorListener;
-
-
-
 
 
     private int mNowStep;

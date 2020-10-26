@@ -5,8 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.cn.customview.permissions.MY_BROADCAST" />
 
     <application
+        android:name=".NwqApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,22 +16,44 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".data_processing.gson.GsonTestActivity">
+
+        </activity>
+        <activity android:name=".ui_function.animation.ObjectAnimationActivity">
+
+        </activity>
+        <activity android:name=".ui_function.animation.AnimationActivity" />
+        <activity android:name=".equipment_function.video_playback.SimpleVideoActivity" />
+        <activity android:name=".ui_function.anylayer.AnylayerActivity">
+
+        </activity>
+        <activity android:name=".ui_function.anylayer.DragActivity" />
+        <activity android:name=".ui_function.anylayer.FullScreenActivity" />
+        <activity android:name=".ui_function.anylayer.NormalActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui_function.animation.ObjectAnimationActivity">
-        </activity>
-        <activity android:name=".ui_function.animation.AnimationActivity" />
-        <activity android:name=".equipment_function.video_playback.SimpleVideoActivity" />
-        <activity android:name=".ui_function.anylayer.MainActivity">
-           </activity>
-        <activity android:name=".ui_function.anylayer.DragActivity" />
-        <activity android:name=".ui_function.anylayer.FullScreenActivity" />
-        <activity android:name=".ui_function.anylayer.NormalActivity" />
-        <activity android:name=".MainActivity" />
+
+        <receiver
+            android:name=".ui_function.notify.ReplyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.nwq.broadcast.action.reply" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.ningwenqiang.glory.mygitdemoapp.ui_function.notify.broadcast.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.administrator.myapplication.MyBroadcastReceiver" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

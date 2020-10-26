@@ -8,34 +8,34 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ningwenqiang.glory.mygitdemoapp.R;
+import com.ningwenqiang.glory.mygitdemoapp.ui_function.notify.NotificationFunction;
 
-public class MainActivity extends AppCompatActivity {
+public class AnylayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        EditText editText= findViewById(R.id.x134);
     }
 
     private void initView() {
         findViewById(R.id.tv_activity_normal).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, NormalActivity.class));
+                startActivity(new Intent(AnylayerActivity.this, NormalActivity.class));
             }
         });
         findViewById(R.id.tv_activity_full_screen).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, FullScreenActivity.class));
+                startActivity(new Intent(AnylayerActivity.this, FullScreenActivity.class));
             }
         });
         findViewById(R.id.tv_activity_drag).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DragActivity.class));
+                startActivity(new Intent(AnylayerActivity.this, DragActivity.class));
             }
         });
     }

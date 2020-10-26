@@ -65,7 +65,12 @@ interface ActivityStackManager : LifecycleEventObserver {
          * @return Activity
          */
         fun getTopActivity(): Activity? {
-            return mActivityStack.lastElement().get()
+            return if (mActivityStack.empty()) {
+                null
+            } else {
+                mActivityStack?.lastElement().get()
+            }
+
         }
 
         /***

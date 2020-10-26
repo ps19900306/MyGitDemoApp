@@ -2,4 +2,8 @@
     <string name="app_name">MyGitDemoApp</string>
     <string name="dialog_msg">Android稳定高效的浮层创建管理框架</string>
     <string name="pet_hello">你好啊！\n 又看到你啦~</string>
+
+    <string name="channel_name">life record</string>
+    <string name="channel_description">用来进行流程控制</string>
+    <string name="notification_title">MyGitDemoApp</string>
 </resources>
