@@ -37,7 +37,7 @@ interface ActivityStackManager : LifecycleEventObserver {
         }
 
         //其实这个不会为空
-        fun getContext(): Context? {
+        fun getContext(): Context {
             return getTopActivity() ?: BasicApp.context
         }
 

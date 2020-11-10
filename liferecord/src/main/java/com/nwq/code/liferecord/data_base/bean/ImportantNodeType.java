@@ -8,5 +8,5 @@ package com.nwq.code.liferecord.data_base.bean;
  * LIFE      最多三件
  */
 public enum ImportantNodeType {
-    ABOVE_ALL, LIFE, KEEP;
+    UNDEFINED, ABOVE_ALL, LIFE, KEEP
 }

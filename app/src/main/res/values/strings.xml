@@ -6,4 +6,9 @@
     <string name="channel_name">life record</string>
     <string name="channel_description">用来进行流程控制</string>
     <string name="notification_title">MyGitDemoApp</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

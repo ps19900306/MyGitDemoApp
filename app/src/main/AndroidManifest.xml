@@ -15,12 +15,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".data_processing.gson.GsonTestActivity">
+        <activity
+            android:name=".ui_function.activity.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".ui_function.animation.ObjectAnimationActivity">
 
-        </activity>
+        <service
+            android:name=".ui_function.notify.MediaService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".data_processing.gson.GsonTestActivity" />
+        <activity android:name=".ui_function.animation.ObjectAnimationActivity" />
         <activity android:name=".ui_function.animation.AnimationActivity" />
         <activity android:name=".equipment_function.video_playback.SimpleVideoActivity" />
         <activity android:name=".ui_function.anylayer.AnylayerActivity">
@@ -29,13 +42,7 @@
         <activity android:name=".ui_function.anylayer.DragActivity" />
         <activity android:name=".ui_function.anylayer.FullScreenActivity" />
         <activity android:name=".ui_function.anylayer.NormalActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <receiver
             android:name=".ui_function.notify.ReplyBroadcastReceiver"
@@ -45,9 +52,8 @@
                 <action android:name="com.nwq.broadcast.action.reply" />
             </intent-filter>
         </receiver>
-
         <receiver
-            android:name="com.ningwenqiang.glory.mygitdemoapp.ui_function.notify.broadcast.MyBroadcastReceiver"
+            android:name=".ui_function.notify.broadcast.MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

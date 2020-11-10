@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_text">
+
+    <fragment
+        android:id="@+id/navigation_text"
+        android:name="com.nwq.code.liferecord.ui.anchor.ui.text.TextFragment"
+        android:label="@string/title_text"
+        tools:layout="@layout/fragment_text" />
+
+    <fragment
+        android:id="@+id/navigation_audio"
+        android:name="com.nwq.code.liferecord.ui.anchor.ui.dashboard.DashboardFragment"
+        android:label="@string/title_audio"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_photograph"
+        android:name="com.nwq.code.liferecord.ui.anchor.ui.capture.CaptureFragment"
+        android:label="@string/title_photograph"
+        tools:layout="@layout/fragment_capture" />
+</navigation>

@@ -6,6 +6,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 
 import java.util.Date;
+import java.util.Vector;
 
 import org.greenrobot.greendao.annotation.Generated;
 
@@ -22,20 +23,30 @@ public class AnchorPoint {
 
     @NotNull
     private String text;
+
     private String comment;
+
+    private int position = -1;
+
     private java.util.Date date;
 
     @Convert(converter = AnchorPointTypeConverter.class, columnType = String.class)
-    private AnchorPointType type;
+    private AnchorPointType anchorPointType = AnchorPointType.UNDEFINED;
 
-    @Generated(hash = 809884710)
-    public AnchorPoint(long id, @NotNull String text, String comment,
-                       java.util.Date date, AnchorPointType type) {
+    @Convert(converter = ContentTypeConverter.class, columnType = String.class)
+    private ContentType contentType;
+
+    @Generated(hash = 203412522)
+    public AnchorPoint(long id, @NotNull String text, String comment, int position,
+                       java.util.Date date, AnchorPointType anchorPointType,
+                       ContentType contentType) {
         this.id = id;
         this.text = text;
         this.comment = comment;
+        this.position = position;
         this.date = date;
-        this.type = type;
+        this.anchorPointType = anchorPointType;
+        this.contentType = contentType;
     }
 
     @Generated(hash = 1292665584)
@@ -43,7 +54,7 @@ public class AnchorPoint {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -51,7 +62,7 @@ public class AnchorPoint {
     }
 
     public String getText() {
-        return text;
+        return this.text;
     }
 
     public void setText(String text) {
@@ -59,26 +70,43 @@ public class AnchorPoint {
     }
 
     public String getComment() {
-        return comment;
+        return this.comment;
     }
 
     public void setComment(String comment) {
         this.comment = comment;
     }
 
-    public Date getDate() {
-        return date;
+    public int getPosition() {
+        return this.position;
     }
 
-    public void setDate(Date date) {
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public java.util.Date getDate() {
+        return this.date;
+    }
+
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 
-    public AnchorPointType getType() {
-        return type;
+    public AnchorPointType getAnchorPointType() {
+        return this.anchorPointType;
     }
 
-    public void setType(AnchorPointType type) {
-        this.type = type;
+    public void setAnchorPointType(AnchorPointType anchorPointType) {
+        this.anchorPointType = anchorPointType;
     }
+
+    public ContentType getContentType() {
+        return this.contentType;
+    }
+
+    public void setContentType(ContentType contentType) {
+        this.contentType = contentType;
+    }
+
 }

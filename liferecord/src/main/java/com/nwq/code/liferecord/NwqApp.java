@@ -29,7 +29,6 @@ public class NwqApp extends BasicApp {
         SQLiteDatabase db = devOpenHelper.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
-
     }
 
     /**

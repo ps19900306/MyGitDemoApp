@@ -90,4 +90,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_anchor">首页</string>
+    <string name="title_text">文本输入</string>
+    <string name="title_audio">音频输入</string>
+    <string name="title_photograph">拍照</string>
 </resources>

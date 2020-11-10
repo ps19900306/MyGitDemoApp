@@ -11,6 +11,8 @@ import org.greenrobot.greendao.database.DatabaseStatement;
 
 import com.nwq.code.liferecord.data_base.bean.AnchorPointType;
 import com.nwq.code.liferecord.data_base.bean.AnchorPointTypeConverter;
+import com.nwq.code.liferecord.data_base.bean.ContentType;
+import com.nwq.code.liferecord.data_base.bean.ContentTypeConverter;
 
 import com.nwq.code.liferecord.data_base.bean.AnchorPoint;
 
@@ -30,11 +32,14 @@ public class AnchorPointDao extends AbstractDao<AnchorPoint, Long> {
         public final static Property Id = new Property(0, long.class, "id", true, "_id");
         public final static Property Text = new Property(1, String.class, "text", false, "TEXT");
         public final static Property Comment = new Property(2, String.class, "comment", false, "COMMENT");
-        public final static Property Date = new Property(3, java.util.Date.class, "date", false, "DATE");
-        public final static Property Type = new Property(4, String.class, "type", false, "TYPE");
+        public final static Property Position = new Property(3, int.class, "position", false, "POSITION");
+        public final static Property Date = new Property(4, java.util.Date.class, "date", false, "DATE");
+        public final static Property AnchorPointType = new Property(5, String.class, "anchorPointType", false, "ANCHOR_POINT_TYPE");
+        public final static Property ContentType = new Property(6, String.class, "contentType", false, "CONTENT_TYPE");
     }
 
-    private final AnchorPointTypeConverter typeConverter = new AnchorPointTypeConverter();
+    private final AnchorPointTypeConverter anchorPointTypeConverter = new AnchorPointTypeConverter();
+    private final ContentTypeConverter contentTypeConverter = new ContentTypeConverter();
 
     public AnchorPointDao(DaoConfig config) {
         super(config);
@@ -51,8 +56,10 @@ public class AnchorPointDao extends AbstractDao<AnchorPoint, Long> {
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ," + // 0: id
                 "\"TEXT\" TEXT NOT NULL ," + // 1: text
                 "\"COMMENT\" TEXT," + // 2: comment
-                "\"DATE\" INTEGER," + // 3: date
-                "\"TYPE\" TEXT);"); // 4: type
+                "\"POSITION\" INTEGER NOT NULL ," + // 3: position
+                "\"DATE\" INTEGER," + // 4: date
+                "\"ANCHOR_POINT_TYPE\" TEXT," + // 5: anchorPointType
+                "\"CONTENT_TYPE\" TEXT);"); // 6: contentType
     }
 
     /** Drops the underlying database table. */
@@ -71,15 +78,21 @@ public class AnchorPointDao extends AbstractDao<AnchorPoint, Long> {
         if (comment != null) {
             stmt.bindString(3, comment);
         }
+        stmt.bindLong(4, entity.getPosition());
  
         java.util.Date date = entity.getDate();
         if (date != null) {
-            stmt.bindLong(4, date.getTime());
+            stmt.bindLong(5, date.getTime());
         }
  
-        AnchorPointType type = entity.getType();
-        if (type != null) {
-            stmt.bindString(5, typeConverter.convertToDatabaseValue(type));
+        AnchorPointType anchorPointType = entity.getAnchorPointType();
+        if (anchorPointType != null) {
+            stmt.bindString(6, anchorPointTypeConverter.convertToDatabaseValue(anchorPointType));
+        }
+ 
+        ContentType contentType = entity.getContentType();
+        if (contentType != null) {
+            stmt.bindString(7, contentTypeConverter.convertToDatabaseValue(contentType));
         }
     }
 
@@ -93,15 +106,21 @@ public class AnchorPointDao extends AbstractDao<AnchorPoint, Long> {
         if (comment != null) {
             stmt.bindString(3, comment);
         }
+        stmt.bindLong(4, entity.getPosition());
  
         java.util.Date date = entity.getDate();
         if (date != null) {
-            stmt.bindLong(4, date.getTime());
+            stmt.bindLong(5, date.getTime());
         }
  
-        AnchorPointType type = entity.getType();
-        if (type != null) {
-            stmt.bindString(5, typeConverter.convertToDatabaseValue(type));
+        AnchorPointType anchorPointType = entity.getAnchorPointType();
+        if (anchorPointType != null) {
+            stmt.bindString(6, anchorPointTypeConverter.convertToDatabaseValue(anchorPointType));
+        }
+ 
+        ContentType contentType = entity.getContentType();
+        if (contentType != null) {
+            stmt.bindString(7, contentTypeConverter.convertToDatabaseValue(contentType));
         }
     }
 
@@ -116,8 +135,10 @@ public class AnchorPointDao extends AbstractDao<AnchorPoint, Long> {
             cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // text
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // comment
-            cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)), // date
-            cursor.isNull(offset + 4) ? null : typeConverter.convertToEntityProperty(cursor.getString(offset + 4)) // type
+            cursor.getInt(offset + 3), // position
+            cursor.isNull(offset + 4) ? null : new java.util.Date(cursor.getLong(offset + 4)), // date
+            cursor.isNull(offset + 5) ? null : anchorPointTypeConverter.convertToEntityProperty(cursor.getString(offset + 5)), // anchorPointType
+            cursor.isNull(offset + 6) ? null : contentTypeConverter.convertToEntityProperty(cursor.getString(offset + 6)) // contentType
         );
         return entity;
     }
@@ -127,8 +148,10 @@ public class AnchorPointDao extends AbstractDao<AnchorPoint, Long> {
         entity.setId(cursor.getLong(offset + 0));
         entity.setText(cursor.getString(offset + 1));
         entity.setComment(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setDate(cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)));
-        entity.setType(cursor.isNull(offset + 4) ? null : typeConverter.convertToEntityProperty(cursor.getString(offset + 4)));
+        entity.setPosition(cursor.getInt(offset + 3));
+        entity.setDate(cursor.isNull(offset + 4) ? null : new java.util.Date(cursor.getLong(offset + 4)));
+        entity.setAnchorPointType(cursor.isNull(offset + 5) ? null : anchorPointTypeConverter.convertToEntityProperty(cursor.getString(offset + 5)));
+        entity.setContentType(cursor.isNull(offset + 6) ? null : contentTypeConverter.convertToEntityProperty(cursor.getString(offset + 6)));
      }
     
     @Override

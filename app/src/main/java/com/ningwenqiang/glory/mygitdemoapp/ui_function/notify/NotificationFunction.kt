@@ -7,13 +7,14 @@ import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.RemoteInput
+import androidx.core.app.TaskStackBuilder
 import com.ningwenqiang.glory.mygitdemoapp.R
+import com.ningwenqiang.glory.mygitdemoapp.ui_function.anylayer.FullScreenActivity
 import com.ningwenqiang.glory.toollibrary.BasicApp
 import com.ningwenqiang.glory.toollibrary.BasicApp.Companion.getContextActivity
 import com.ningwenqiang.glory.toollibrary.BasicApp.Companion.getString
@@ -180,8 +181,28 @@ class NotificationFunction {
             with(NotificationManagerCompat.from(getContextActivity())) {
                 notificationManager.notify(SYSTEM_REPLY_ID, newMessageNotification)
             }
-
         }
+
+        private fun getPendingIntent(conversationId: Int): PendingIntent {
+            return PendingIntent.getBroadcast(
+                getContextActivity(),
+                conversationId,
+                getMessageReplyIntent(conversationId),
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        }
+
+        private fun getPendingIntent1(conversationId: Int): PendingIntent {
+            val intent = Intent(BasicApp.context, MediaService::class.java)
+            intent.putExtra("x1x1", conversationId)
+            return PendingIntent.getService(
+                getContextActivity(),
+                conversationId,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        }
+
 
         @SuppressLint("WrongConstant")
         private fun getMessageReplyIntent(conversationId: Int): Intent {
@@ -253,5 +274,94 @@ class NotificationFunction {
                 )
                 .build()
         }
+
+        //大文本提醒框
+        fun showNotificationText(
+            imgIcon: Int,
+            avatarIcon: Bitmap,
+            title: String,
+            content: String,
+            bigText: String
+        ) {
+            var notification = NotificationCompat.Builder(getContextActivity(), CHANNEL_ID)
+                .setSmallIcon(imgIcon)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setLargeIcon(avatarIcon)
+                .setStyle(
+                    NotificationCompat.BigTextStyle()
+                        .bigText(bigText)
+                )
+                .build()
+            notificationManager.notify(SYSTEM_REPLY_ID, notification)
+        }
+
+
+        //大文本提醒框
+        fun showNotificationInboxStyle(
+            imgIcon: Int,
+            largeIcon: Bitmap,
+            title: String,
+            content: String,
+            lime1: CharSequence,
+            lime2: CharSequence
+        ) {
+            var notification = NotificationCompat.Builder(getContextActivity(), CHANNEL_ID)
+                .setSmallIcon(imgIcon)
+                .setContentTitle("5 New mails from  $title")
+                .setContentText(content)
+                .setLargeIcon(largeIcon)
+                .setStyle(
+                    NotificationCompat.InboxStyle()
+                        .addLine(lime1)
+                        .addLine(lime2)
+                )
+                .build()
+            notificationManager.notify(SYSTEM_REPLY_ID, notification)
+        }
+
+        fun showNotificationActivity() {
+            val resultIntent = Intent(getContextActivity(), FullScreenActivity::class.java)
+            // Create the TaskStackBuilder
+            val resultPendingIntent = TaskStackBuilder.create(getContextActivity()).run {
+                // Add the intent, which inflates the back stack
+                addNextIntentWithParentStack(resultIntent)
+                // Get the PendingIntent containing the entire back stack
+                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            }
+        }
+
+
+        fun showNotificationActivityMedia(
+            imgIcon: Int,
+            prevImgIcon: Int,
+            pauseImgIcon: Int,
+            nextImgIcon: Int,
+            albumArtBitmap: Bitmap
+        ) {
+            var notification = NotificationCompat.Builder(getContextActivity(), CHANNEL_ID)
+                // Show controls on lock screen even when user hides sensitive content.
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setSmallIcon(imgIcon)
+                // Add media control buttons that invoke intents in your media service
+                .addAction(prevImgIcon, "Previous", getPendingIntent1(0)) // #0
+                .addAction(pauseImgIcon, "Pause", getPendingIntent1(1)) // #1
+                .addAction(nextImgIcon, "Next", getPendingIntent1(3)) // #2
+                // Apply the media style template
+                .setStyle(
+                    androidx.media.app.NotificationCompat.MediaStyle()
+                        .setShowActionsInCompactView(1 /* #1: pause button \*/)
+                     //.setMediaSession(mediaSession.getSessionToken())
+                )
+                .setContentTitle("Wonderful music")
+                .setContentText("My Awesome Band")
+                .setLargeIcon(albumArtBitmap)
+                .build()
+            notificationManager.notify(SYSTEM_REPLY_ID, notification)
+        }
+
+
+        ////////-----------------------------------
+
     }
 }

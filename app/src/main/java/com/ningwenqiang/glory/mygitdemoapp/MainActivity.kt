@@ -3,6 +3,8 @@ package com.ningwenqiang.glory.mygitdemoapp
 
 import android.content.ComponentName
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +18,13 @@ class MainActivity : AppCompatActivity() {
         NotificationFunction.createNotificationChannel()
         findViewById<View>(R.id.tv_activity_normal).setOnClickListener {
             //       NotificationFunction.showNotification(R.mipmap.ic_launcher, "nwq", "notification",NormalActivity::class.java)
-
-            NotificationFunction.showNotificationProgress(R.mipmap.ic_launcher, "nwq", "notification")
+            NotificationFunction.showNotificationActivityMedia(
+                R.mipmap.ic_launcher,
+                R.mipmap.ic_launcher,
+                R.mipmap.ic_launcher,
+                R.mipmap.ic_launcher,
+                BitmapFactory.decodeResource(resources, R.mipmap.chat_group)
+            )
         }
         findViewById<View>(R.id.tv_activity_full_screen).setOnClickListener {
             val intent =
@@ -28,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 applicationContext,
                 "com.ningwenqiang.glory.mygitdemoapp.ui_function.notify.broadcast.MyBroadcastReceiver"
             )
-           // intent.addFlags(0x01000000)
+            // intent.addFlags(0x01000000)
             sendBroadcast(intent)
         }
     }
