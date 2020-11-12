@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.ui.anchor.ui
+package com.nwq.code.liferecord.ui.anchor
 
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -10,6 +10,7 @@ import com.ningwenqiang.glory.toollibrary.activity.BasicActivity
 import com.ningwenqiang.glory.toollibrary.observer.DataInterface
 import com.nwq.code.liferecord.R
 import com.nwq.code.liferecord.data_base.GetDaoSession
+import com.nwq.code.liferecord.ui.anchor.AnchorLiveData
 import kotlinx.android.synthetic.main.activity_anchor.*
 import per.goweii.anylayer.AnyLayer
 
@@ -25,7 +26,7 @@ class AnchorActivity : BasicActivity(), DataInterface<AnchorLiveData>, GetDaoSes
         fab.setOnClickListener {
             //   val daoSession: DaoSession = (application as NwqApp).daoSession
             if (anchorLiveData.hasInputContent()) {
-                AnyLayer.dialog()
+
             }
         }
         supportActionBar?.hide()
@@ -52,5 +53,9 @@ class AnchorActivity : BasicActivity(), DataInterface<AnchorLiveData>, GetDaoSes
 
     fun saveData() {
         getDaoSession().anchorPointDao.save(anchorLiveData.value)
+    }
+
+    fun showSelect(){
+
     }
 }

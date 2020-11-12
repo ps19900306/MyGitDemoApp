@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.utils
+package com.ningwenqiang.glory.toollibrary.utils
 
 import java.text.SimpleDateFormat
 import java.util.*

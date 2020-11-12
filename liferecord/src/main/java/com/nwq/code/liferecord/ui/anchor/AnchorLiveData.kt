@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.ui.anchor.ui
+package com.nwq.code.liferecord.ui.anchor
 
 import androidx.lifecycle.LiveData
 import com.nwq.code.liferecord.data_base.bean.AnchorPoint
@@ -26,5 +26,6 @@ class AnchorLiveData(private val anchorPoint: AnchorPoint = AnchorPoint()) :
     fun hasInputContent(): Boolean {
         return !anchorPoint.comment.isNullOrEmpty()
     }
+
 
 }

@@ -17,6 +17,7 @@ Function description:
 abstract class BasicFragment : Fragment() {
 
     protected lateinit var rootView: View
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }

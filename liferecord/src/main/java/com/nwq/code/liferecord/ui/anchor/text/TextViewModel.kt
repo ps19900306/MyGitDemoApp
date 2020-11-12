@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.ui.anchor.ui.text
+package com.nwq.code.liferecord.ui.anchor.text
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.utils
+package com.ningwenqiang.glory.toollibrary.utils
 
 import android.content.ContentValues
 import android.content.Context
@@ -21,6 +21,8 @@ import okio.source
 import java.io.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
 create by: 86136
@@ -34,6 +36,7 @@ object FileUtils {
      */
     private const val MD5_FILE_BUFFER_LENGTH = 1 * 1024 * 1024
     private const val JCAMERA = "JCAMERA"
+
     /**
      * 根节点
      */
@@ -49,7 +52,7 @@ object FileUtils {
      * JCamera
      * 根节点
      */
-     fun getJCameraRootDirector(): String? {
+    fun getJCameraRootDirector(): String? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ActivityStackManager.getContext().getExternalFilesDir(JCAMERA)?.absoluteFile?.path
         } else {
@@ -57,6 +60,13 @@ object FileUtils {
         }
     }
 
+
+    fun saveBitmap(bitmap: Bitmap): String? {
+        val bao = ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bao);
+        val bytes = bao.toByteArray()
+        return saveToFile(bytes, ".jpg")
+    }
 
 
     /**

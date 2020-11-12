@@ -1,21 +1,33 @@
-package com.nwq.code.liferecord.ui.anchor.ui.capture
+package com.nwq.code.liferecord.ui.anchor.capture
 
 import android.Manifest
+import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Environment
 import android.view.View
 import com.cjt2325.cameralibrary.JCameraView
 import com.cjt2325.cameralibrary.JCameraView.BUTTON_STATE_BOTH
 import com.cjt2325.cameralibrary.listener.JCameraListener
 import com.ningwenqiang.glory.toollibrary.fragment.BasicFragment
-import com.ningwenqiang.glory.toollibrary.log.L
+import com.ningwenqiang.glory.toollibrary.observer.DataInterface
 import com.ningwenqiang.glory.toollibrary.observer.ObserverNwqImpl
+import com.ningwenqiang.glory.toollibrary.utils.FileUtils
 import com.nwq.code.liferecord.R
-import com.nwq.code.liferecord.utils.FileUtils
-import java.io.File
+import com.nwq.code.liferecord.data_base.bean.ContentType
+import com.nwq.code.liferecord.ui.anchor.AnchorLiveData
 
 class CaptureFragment : BasicFragment() {
+
+    private lateinit var anchorLiveData: DataInterface<AnchorLiveData>
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is DataInterface<*>) {
+            anchorLiveData = context as DataInterface<AnchorLiveData>
+        } else {
+
+        }
+    }
 
     private val list = arrayOf(
         "android.permission.FLASHLIGHT",
@@ -30,7 +42,6 @@ class CaptureFragment : BasicFragment() {
     }
 
     private lateinit var notificationsViewModel: NotificationsViewModel
-
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_capture
@@ -54,9 +65,7 @@ class CaptureFragment : BasicFragment() {
     override fun initData(savedInstanceState: Bundle?) {
         checkPermission(list, ObserverNwqImpl {
             if (it) {
-
             } else {
-
             }
         })
 
@@ -71,28 +80,19 @@ class CaptureFragment : BasicFragment() {
         //JCameraView监听
         jCameraView.setJCameraLisenter(object : JCameraListener {
             override fun captureSuccess(bitmap: Bitmap) {
-                //获取图片bitmap
-                L.i(
-                    "bitmap = " + bitmap.width,
-                    "captureSuccess",
-                    "CaptureFragment",
-                    "nwq",
-                    "2020/11/9"
-                )
+                FileUtils.saveBitmap(bitmap)?.let {
+                    anchorLiveData.getData().setContent(it)
+                    anchorLiveData.getData().setContentType(ContentType.PICTURE)
+                }
             }
 
             override fun recordSuccess(
                 url: String,
                 firstFrame: Bitmap
             ) {
-                L.i(
-                    "bitmap = " + firstFrame.width,
-                    "captureSuccess",
-                    "CaptureFragment",
-                    "nwq",
-                    "2020/11/9"
-                )
-                L.i("url = $url", "captureSuccess", "CaptureFragment", "nwq", "2020/11/9")
+
+                anchorLiveData.getData().setContent(url)
+                anchorLiveData.getData().setContentType(ContentType.AUDIO)
             }
         })
     }

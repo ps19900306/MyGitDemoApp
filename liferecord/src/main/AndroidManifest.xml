@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nwq.code.liferecord">
 
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -19,8 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.anchor.ui.AnchorActivity"
-            android:label="@string/title_activity_anchor">
+            android:name=".ui.tree.ItemListActivity"
+            android:label="@string/title_item_list"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +29,23 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.tree.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".ui.tree.ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nwq.code.liferecord.ui.tree.ItemListActivity" />
+        </activity>
+        <activity
+            android:name=".ui.anchor.AnchorActivity"
+            android:label="@string/title_activity_anchor">
+
+        </activity>
+        <activity
             android:name=".ScrollingActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

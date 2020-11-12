@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.ui.anchor.ui.dashboard
+package com.nwq.code.liferecord.ui.anchor.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater

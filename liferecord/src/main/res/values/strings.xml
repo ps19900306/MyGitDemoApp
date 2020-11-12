@@ -94,4 +94,6 @@
     <string name="title_text">文本输入</string>
     <string name="title_audio">音频输入</string>
     <string name="title_photograph">拍照</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
 </resources>

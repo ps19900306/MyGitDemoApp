@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_text"
-        android:name="com.nwq.code.liferecord.ui.anchor.ui.text.TextFragment"
+        android:name="com.nwq.code.liferecord.ui.anchor.text.TextFragment"
         android:label="@string/title_text"
         tools:layout="@layout/fragment_text" />
 
     <fragment
         android:id="@+id/navigation_audio"
-        android:name="com.nwq.code.liferecord.ui.anchor.ui.dashboard.DashboardFragment"
+        android:name="com.nwq.code.liferecord.ui.anchor.dashboard.DashboardFragment"
         android:label="@string/title_audio"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_photograph"
-        android:name="com.nwq.code.liferecord.ui.anchor.ui.capture.CaptureFragment"
+        android:name="com.nwq.code.liferecord.ui.anchor.capture.CaptureFragment"
         android:label="@string/title_photograph"
         tools:layout="@layout/fragment_capture" />
 </navigation>

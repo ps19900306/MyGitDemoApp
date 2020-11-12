@@ -9,4 +9,4 @@
     app:iconMargin="20dp"
     app:iconSize="30dp"
     app:iconSrc="@drawable/ic_camera_enhance_black_24dp"
-    tools:context=".ui.anchor.ui.capture.CaptureFragment"/>
+    tools:context=".ui.anchor.capture.CaptureFragment"/>
