@@ -20,11 +20,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service
@@ -42,7 +38,12 @@
         <activity android:name=".ui_function.anylayer.DragActivity" />
         <activity android:name=".ui_function.anylayer.FullScreenActivity" />
         <activity android:name=".ui_function.anylayer.NormalActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
 
         <receiver
             android:name=".ui_function.notify.ReplyBroadcastReceiver"

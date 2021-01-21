@@ -27,30 +27,39 @@ public class TakeTimeRecord {
         this.startDate = startDate;
         this.endTime = endTime;
     }
+
     @Generated(hash = 630057646)
     public TakeTimeRecord() {
     }
+
     public long getId() {
         return this.id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
+
     public long getNodeId() {
         return this.nodeId;
     }
+
     public void setNodeId(long nodeId) {
         this.nodeId = nodeId;
     }
+
     public java.util.Date getStartDate() {
         return this.startDate;
     }
+
     public void setStartDate(java.util.Date startDate) {
         this.startDate = startDate;
     }
+
     public java.util.Date getEndTime() {
         return this.endTime;
     }
+
     public void setEndTime(java.util.Date endTime) {
         this.endTime = endTime;
     }

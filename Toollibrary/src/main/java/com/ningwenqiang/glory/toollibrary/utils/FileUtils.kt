@@ -10,10 +10,10 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.text.TextUtils
+import com.ningwenqiang.glory.toollibrary.R
 import com.ningwenqiang.glory.toollibrary.activity.ActivityStackManager
 import com.ningwenqiang.glory.toollibrary.log.L
 import com.ningwenqiang.glory.toollibrary.observer.ObserverNwq
-import com.nwq.code.liferecord.R
 import okio.BufferedSource
 import okio.buffer
 import okio.sink
@@ -343,7 +343,7 @@ object FileUtils {
             val pictureFolder = getFileRootDirectory(Environment.DIRECTORY_PICTURES)
             val appDir = File(
                 pictureFolder,
-                ActivityStackManager.getContext().getString(R.string.app_name)
+              "nwq"
             )//可能在公用的所以包一层
             if (!appDir.exists()) {
                 val mkdirs = appDir.mkdirs()
@@ -388,7 +388,7 @@ object FileUtils {
             val pictureFolder = getFileRootDirectory(Environment.DIRECTORY_PICTURES)
             val appDir = File(
                 pictureFolder,
-                ActivityStackManager.getContext().getString(R.string.app_name)
+               "nwq"
             )//可能在公用的所以包一层
             if (!appDir.exists()) {
                 val mkdirs = appDir.mkdirs()

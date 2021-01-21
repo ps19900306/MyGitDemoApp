@@ -2,7 +2,6 @@ package com.ningwenqiang.glory.toollibrary.radius;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.RadioButton;
 
 import com.ningwenqiang.glory.toollibrary.radius.delegate.RadiusCompoundButtonDelegate;
 
@@ -16,6 +15,7 @@ import com.ningwenqiang.glory.toollibrary.radius.delegate.RadiusCompoundButtonDe
  */
 public class RadiusRadioButton extends androidx.appcompat.widget.AppCompatRadioButton {
     private RadiusCompoundButtonDelegate delegate;
+
 
     public RadiusRadioButton(Context context) {
         this(context, null);

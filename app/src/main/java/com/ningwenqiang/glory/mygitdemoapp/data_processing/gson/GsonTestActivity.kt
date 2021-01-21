@@ -41,6 +41,7 @@ class GsonTestActivity : AppCompatActivity() {
 
         val json= gson.toJson(bas)
         System.out.println(json)
+
         val objectType: Type? = object : TypeToken<BaseGenericParadigm<GenericParadigmData1?>?>() {}.type
        //    val bas2:BaseGenericParadigm<GenericParadigmData1> =  gson.fromJson(json, objectType)
         val data : BaseGenericParadigm1<GenData3> = json.toJsonObject()

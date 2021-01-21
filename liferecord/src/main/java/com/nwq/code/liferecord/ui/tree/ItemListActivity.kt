@@ -2,6 +2,7 @@ package com.nwq.code.liferecord.ui.tree
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import androidx.core.widget.NestedScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,9 @@ import android.widget.TextView
 import com.nwq.code.liferecord.R
 
 import com.nwq.code.liferecord.ui.tree.dummy.DummyContent
+import per.goweii.anylayer.AnyLayer
+import per.goweii.anylayer.DialogLayer
+import per.goweii.anylayer.SwipeLayout
 
 /**
  * An activity representing a list of Pings. This activity
@@ -41,6 +45,7 @@ class ItemListActivity : AppCompatActivity() {
         toolbar.title = title
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+            showSelect()
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
@@ -114,5 +119,35 @@ class ItemListActivity : AppCompatActivity() {
             val idView: TextView = view.findViewById(R.id.id_text)
             val contentView: TextView = view.findViewById(R.id.content)
         }
+    }
+
+    fun showSelect() {
+        val dialog = AnyLayer.dialog(this)
+            .contentView(R.layout.dilog_anchor_step)
+            .avoidStatusBar(true)
+            .gravity(Gravity.TOP)
+            .outsideInterceptTouchEvent(false)
+            .swipeDismiss(SwipeLayout.Direction.RIGHT)
+            .animStyle(DialogLayer.AnimStyle.TOP)
+//        dialog.bindData {
+//            val choiceView = it.getView<TextView>(R.id.choice)
+//            val listPop = ListPopupWindow(this)
+//            listPop.setAdapter(
+//                ArrayAdapter<String>(
+//                    this,
+//                    android.R.layout.simple_list_item_1,
+//                    list
+//                )
+//            )
+//            listPop.width = ViewGroup.LayoutParams.WRAP_CONTENT
+//            listPop.height = ViewGroup.LayoutParams.WRAP_CONTENT
+//            listPop.anchorView = choiceView //设置ListPopupWindow的锚点，即关联PopupWindow的显示位置和这个锚点
+//            listPop.isModal = true //设置是否是模式
+//            listPop.setOnItemClickListener { parent, view, position, id ->
+//                choiceView?.text = list[position]
+//                listPop.dismiss()
+//            }
+//        }
+        dialog.show()
     }
 }

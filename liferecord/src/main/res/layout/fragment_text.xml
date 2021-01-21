@@ -8,10 +8,13 @@
     <EditText
         android:hint="请输入内容"
         android:gravity="left|top"
+        android:layout_marginTop="30dp"
         android:lineSpacingMultiplier="1.2"
         tools:text="@string/large_text"
         android:padding="10dp"
+        android:background="@null"
         android:id="@+id/input_edit"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"/>
 </FrameLayout>

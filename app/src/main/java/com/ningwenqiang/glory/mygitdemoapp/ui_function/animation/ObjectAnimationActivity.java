@@ -286,7 +286,6 @@ public class ObjectAnimationActivity extends AppCompatActivity {
      * 旋转的同时进行透明度变化
      */
     protected void rotateAndAlpha() {
-
         ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 360);
         valueAnimator.setDuration(1000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
