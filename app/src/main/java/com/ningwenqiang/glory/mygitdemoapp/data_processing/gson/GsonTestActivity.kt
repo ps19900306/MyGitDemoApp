@@ -57,7 +57,7 @@ class GsonTestActivity : AppCompatActivity() {
             i,v ->
         }
 
-
+      
      }
 
 

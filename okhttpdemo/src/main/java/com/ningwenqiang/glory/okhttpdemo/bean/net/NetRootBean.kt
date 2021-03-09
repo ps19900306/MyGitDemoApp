@@ -1,4 +1,4 @@
-package com.ningwenqiang.glory.okhttpdemo.bean
+package com.ningwenqiang.glory.okhttpdemo.bean.net
 
 /**
  * 对网络消息进行统一处理的

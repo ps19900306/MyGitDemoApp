@@ -1,4 +1,4 @@
-package com.ningwenqiang.glory.okhttpdemo.bean
+package com.ningwenqiang.glory.okhttpdemo.bean.net
 
 import java.io.Serializable
 
