@@ -1,11 +1,10 @@
-package com.nwq.code.liferecord.data_base.bean;
+package com.nwq.code.liferecord.data_base.bean.anchor;
 
 import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Generated;
-import java.util.Date;
 
 /**
  * create by: 86136

@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.data_base.bean;
+package com.nwq.code.liferecord.data_base.bean.anchor;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;

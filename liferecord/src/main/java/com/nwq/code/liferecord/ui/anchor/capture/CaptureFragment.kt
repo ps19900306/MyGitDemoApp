@@ -13,7 +13,7 @@ import com.ningwenqiang.glory.toollibrary.observer.DataInterface
 import com.ningwenqiang.glory.toollibrary.observer.ObserverNwqImpl
 import com.ningwenqiang.glory.toollibrary.utils.FileUtils
 import com.nwq.code.liferecord.R
-import com.nwq.code.liferecord.data_base.bean.ContentType
+import com.nwq.code.liferecord.data_base.bean.anchor.ContentType
 import com.nwq.code.liferecord.ui.anchor.AnchorLiveData
 
 class CaptureFragment : BasicFragment() {

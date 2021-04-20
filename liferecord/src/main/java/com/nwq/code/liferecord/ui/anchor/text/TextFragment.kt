@@ -7,7 +7,7 @@ import androidx.core.widget.doAfterTextChanged
 import com.ningwenqiang.glory.toollibrary.fragment.BasicFragment
 import com.ningwenqiang.glory.toollibrary.observer.DataInterface
 import com.nwq.code.liferecord.R
-import com.nwq.code.liferecord.data_base.bean.ContentType
+import com.nwq.code.liferecord.data_base.bean.anchor.ContentType
 import com.nwq.code.liferecord.ui.anchor.AnchorLiveData
 import kotlinx.android.synthetic.main.fragment_text.*
 

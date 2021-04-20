@@ -9,4 +9,20 @@
         <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
 
+
+    <declare-styleable name="input_item">
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_hint" format="string" />
+        <attr name="img_drawable" format="integer" />
+        <attr name="separator_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="title_bar">
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="show_back" format="boolean" />
+        <attr name="img_drawable" format="integer" />
+    </declare-styleable>
+
 </resources>

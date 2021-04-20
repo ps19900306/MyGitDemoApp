@@ -24,6 +24,9 @@ public class DaoMaster extends AbstractDaoMaster {
         AnchorPointDao.createTable(db, ifNotExists);
         ImportantNodeDao.createTable(db, ifNotExists);
         TakeTimeRecordDao.createTable(db, ifNotExists);
+        FulcrumFactorDao.createTable(db, ifNotExists);
+        FulcrumItemDao.createTable(db, ifNotExists);
+        FulcrumTypeDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -31,6 +34,9 @@ public class DaoMaster extends AbstractDaoMaster {
         AnchorPointDao.dropTable(db, ifExists);
         ImportantNodeDao.dropTable(db, ifExists);
         TakeTimeRecordDao.dropTable(db, ifExists);
+        FulcrumFactorDao.dropTable(db, ifExists);
+        FulcrumItemDao.dropTable(db, ifExists);
+        FulcrumTypeDao.dropTable(db, ifExists);
     }
 
     /**
@@ -52,6 +58,9 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(AnchorPointDao.class);
         registerDaoClass(ImportantNodeDao.class);
         registerDaoClass(TakeTimeRecordDao.class);
+        registerDaoClass(FulcrumFactorDao.class);
+        registerDaoClass(FulcrumItemDao.class);
+        registerDaoClass(FulcrumTypeDao.class);
     }
 
     public DaoSession newSession() {

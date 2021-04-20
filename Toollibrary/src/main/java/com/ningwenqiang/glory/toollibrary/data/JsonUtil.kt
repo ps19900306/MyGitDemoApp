@@ -24,5 +24,4 @@ abstract class JsonUtil {
         }
     }
 
-
 }

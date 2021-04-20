@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.data_base.bean;
+package com.nwq.code.liferecord.data_base.bean.anchor;
 
 /**
  * 锚点，认值的基本

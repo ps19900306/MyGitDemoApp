@@ -17,7 +17,6 @@ class ReplyBroadcastReceiver : BroadcastReceiver() {
 
 
     override fun onReceive(p0: Context, intent: Intent) {
-        L.i("收到日志", "onReceive", "ReplyBroadcastReceiver", "nwq", "2020/10/26");
         getMessageText(intent)?.let {
             ToastUtil.showToastLong(it)
         }

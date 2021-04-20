@@ -1,4 +1,4 @@
-package com.nwq.code.liferecord.data_base.bean;
+package com.nwq.code.liferecord.data_base.bean.anchor;
 
 /**
  * create by: 86136

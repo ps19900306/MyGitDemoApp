@@ -1,8 +1,8 @@
 package com.nwq.code.liferecord.ui.anchor
 
 import androidx.lifecycle.LiveData
-import com.nwq.code.liferecord.data_base.bean.AnchorPoint
-import com.nwq.code.liferecord.data_base.bean.ContentType
+import com.nwq.code.liferecord.data_base.bean.anchor.AnchorPoint
+import com.nwq.code.liferecord.data_base.bean.anchor.ContentType
 
 /**
 create by: 86136
